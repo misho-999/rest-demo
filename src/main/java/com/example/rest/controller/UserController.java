@@ -21,16 +21,16 @@ public class UserController {
 
     @GetMapping("/all")
     private ResponseEntity<List<User>> getAllUsers() {
-        return ResponseEntity.ok().body(userRepository.findAll());
+        return ResponseEntity
+                .ok()
+                .body(userRepository.findAll());
     }
 
-
-    //TODO Implement get user by id
-    @GetMapping("/users/{id}")
-    public ResponseEntity<User> getUser(@PathVariable("id") long id) {
-//        return ResponseEntity.ok().body(userRepository.findAll());
-
-        return null;
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable("id") Integer id) {
+        return ResponseEntity
+                .ok()
+                .body(userRepository.findById(id).get());
     }
 
     @PostMapping("/create")
@@ -43,6 +43,8 @@ public class UserController {
 
         userRepository.save(user);
 
-        return ResponseEntity.created(location).build();
+        return ResponseEntity
+                .created(location)
+                .build();
     }
 }
