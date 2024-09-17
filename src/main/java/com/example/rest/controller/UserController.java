@@ -3,10 +3,10 @@ package com.example.rest.controller;
 import com.example.rest.model.User;
 import com.example.rest.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -20,7 +20,29 @@ public class UserController {
     }
 
     @GetMapping("/all")
-    private ResponseEntity<List<User>> getAllUsers(){
+    private ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok().body(userRepository.findAll());
+    }
+
+
+    //TODO Implement get user by id
+    @GetMapping("/users/{id}")
+    public ResponseEntity<User> getUser(@PathVariable("id") long id) {
+//        return ResponseEntity.ok().body(userRepository.findAll());
+
+        return null;
+    }
+
+    @PostMapping("/create")
+    private ResponseEntity<Void> createUser(@RequestBody User user) {
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequestUri()
+                .path("/users")
+                .buildAndExpand(user.getId())
+                .toUri();
+
+        userRepository.save(user);
+
+        return ResponseEntity.created(location).build();
     }
 }
