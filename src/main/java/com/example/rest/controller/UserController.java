@@ -28,9 +28,20 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable("id") Integer id) {
-        return ResponseEntity
-                .ok()
-                .body(userRepository.findById(id).get());
+
+        User user = userRepository.findById(id).orElse(null);
+
+        if (user != null) {
+            return ResponseEntity
+                    .ok()
+                    .body(userRepository.findById(id).get());
+        } else {
+            return ResponseEntity
+                    .notFound()
+                    .build();
+        }
+
+
     }
 
     @PostMapping("/create")
@@ -51,7 +62,14 @@ public class UserController {
     //Update the whole User object
     @PutMapping("/{id}")
     private ResponseEntity<Void> updateUser(@PathVariable Integer id, @RequestBody User user) {
-        User currUser = userRepository.findById(id).get();
+        User currUser = userRepository.findById(id).orElse(null);
+
+        if (currUser == null) {
+            return ResponseEntity
+                    .notFound()
+                    .build();
+        }
+
         currUser.setCars(user.getCars());
         currUser.setEmail(user.getEmail());
         currUser.setUsername(user.getUsername());
@@ -67,7 +85,14 @@ public class UserController {
     //http://localhost:8080/users/4?email=newemail@abv.bg
     @PatchMapping("/{id}")
     private ResponseEntity<Void> updateUserEmail(@PathVariable Integer id, @RequestParam String email) {
-        User currUser = userRepository.findById(id).get();
+        User currUser = userRepository.findById(id).orElse(null);
+
+        if (currUser == null) {
+            return ResponseEntity
+                    .notFound()
+                    .build();
+        }
+
         currUser.setEmail(email);
 
         userRepository.save(currUser);
@@ -79,7 +104,13 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     private ResponseEntity<Void> deleteUser(@PathVariable Integer id) {
-        User currUser = userRepository.findById(id).get();
+        User currUser = userRepository.findById(id).orElse(null);
+
+        if (currUser == null) {
+            return ResponseEntity
+                    .notFound()
+                    .build();
+        }
 
         userRepository.delete(currUser);
 
@@ -87,5 +118,4 @@ public class UserController {
                 .noContent()
                 .build();
     }
-
 }
