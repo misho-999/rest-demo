@@ -47,4 +47,38 @@ public class UserController {
                 .created(location)
                 .build();
     }
+
+    //Update the whole User object
+    @PutMapping("/{id}")
+    private ResponseEntity<Void> updateUser(@PathVariable Integer id, @RequestBody User user) {
+        User currUser = userRepository.findById(id).get();
+        currUser.setCars(user.getCars());
+        currUser.setEmail(user.getEmail());
+        currUser.setUsername(user.getUsername());
+
+        userRepository.save(currUser);
+
+        return ResponseEntity.noContent().build();
+    }
+
+    //Partial update. Only the email
+    //http://localhost:8080/users/4?email=newemail@abv.bg
+    @PatchMapping("/{id}")
+    private ResponseEntity<Void> updateUserEmail(@PathVariable Integer id, @RequestParam String email) {
+        User currUser = userRepository.findById(id).get();
+        currUser.setEmail(email);
+
+        userRepository.save(currUser);
+
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{id}")
+    private ResponseEntity<Void> deleteUser(@PathVariable Integer id) {
+        User currUser = userRepository.findById(id).get();
+
+        userRepository.delete(currUser);
+
+        return ResponseEntity.noContent().build();
+    }
 }
