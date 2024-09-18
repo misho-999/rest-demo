@@ -58,7 +58,9 @@ public class UserController {
 
         userRepository.save(currUser);
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity
+                .noContent()
+                .build();
     }
 
     //Partial update. Only the email
@@ -70,7 +72,9 @@ public class UserController {
 
         userRepository.save(currUser);
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity
+                .noContent()
+                .build();
     }
 
     @DeleteMapping("/{id}")
@@ -79,7 +83,9 @@ public class UserController {
 
         userRepository.delete(currUser);
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity
+                .noContent()
+                .build();
     }
 
 }
