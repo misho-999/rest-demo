@@ -1,7 +1,7 @@
 package com.example.rest.controller;
 
 import com.example.rest.model.User;
-import com.example.rest.repository.UserRepository;
+import com.example.rest.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -13,40 +13,37 @@ import java.util.List;
 @RequestMapping("users")
 public class UserController {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping("/all")
     private ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity
                 .ok()
-                .body(userRepository.findAll());
+                .body(userService.findAllUsers());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable("id") Integer id) {
-
-        User user = userRepository.findById(id).orElse(null);
+        User user = userService.findUserById(id);
 
         if (user != null) {
             return ResponseEntity
                     .ok()
-                    .body(userRepository.findById(id).get());
+                    .body(user);
         } else {
             return ResponseEntity
                     .notFound()
                     .build();
         }
-
-
     }
 
     @PostMapping("/create")
     private ResponseEntity<Void> createUser(@RequestBody User user) {
-        User savedUser = userRepository.save(user);
+        User savedUser = userService.createNewUser(user);
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequestUri()
@@ -62,19 +59,13 @@ public class UserController {
     //Update the whole User object
     @PutMapping("/{id}")
     private ResponseEntity<Void> updateUser(@PathVariable Integer id, @RequestBody User user) {
-        User currUser = userRepository.findById(id).orElse(null);
+       User createdUser = userService.updateExistingUser(id, user);
 
-        if (currUser == null) {
+        if (createdUser == null) {
             return ResponseEntity
                     .notFound()
                     .build();
         }
-
-        currUser.setCars(user.getCars());
-        currUser.setEmail(user.getEmail());
-        currUser.setUsername(user.getUsername());
-
-        userRepository.save(currUser);
 
         return ResponseEntity
                 .noContent()
@@ -85,17 +76,16 @@ public class UserController {
     //http://localhost:8080/users/4?email=newemail@abv.bg
     @PatchMapping("/{id}")
     private ResponseEntity<Void> updateUserEmail(@PathVariable Integer id, @RequestParam String email) {
-        User currUser = userRepository.findById(id).orElse(null);
 
-        if (currUser == null) {
+        User user = userService.updateUserEmail(id, email);
+
+        if (user == null) {
             return ResponseEntity
                     .notFound()
                     .build();
         }
 
-        currUser.setEmail(email);
-
-        userRepository.save(currUser);
+        user.setEmail(email);
 
         return ResponseEntity
                 .noContent()
@@ -103,16 +93,8 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    private ResponseEntity<Void> deleteUser(@PathVariable Integer id) {
-        User currUser = userRepository.findById(id).orElse(null);
-
-        if (currUser == null) {
-            return ResponseEntity
-                    .notFound()
-                    .build();
-        }
-
-        userRepository.delete(currUser);
+    private ResponseEntity<Void> deleteUserById(@PathVariable Integer id) {
+        userService.deleteExistingUserById(id);
 
         return ResponseEntity
                 .noContent()
