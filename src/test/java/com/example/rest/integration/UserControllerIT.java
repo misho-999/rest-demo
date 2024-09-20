@@ -14,6 +14,7 @@ import java.net.URISyntaxException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// WebEnvironment.RANDOM_POR is using to tart the embedded Servlet container
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserControllerIT {
 
