@@ -1,5 +1,7 @@
 package com.example.rest.config;
 
+import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
+import org.springframework.boot.actuate.health.HealthEndpoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -26,8 +28,11 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.DELETE, "/users/{id}").permitAll()
 
                          //Actuator
-                        .requestMatchers(HttpMethod.GET,"/actuator/health").permitAll()
-                        .requestMatchers(HttpMethod.GET,"/actuator/**").hasRole("ADMIN")
+//                        .requestMatchers(HttpMethod.GET,"/actuator/health").permitAll()
+//                        .requestMatchers(HttpMethod.GET,"/actuator/**").hasRole("ADMIN")
+                        .requestMatchers(EndpointRequest.to(HealthEndpoint.class)).permitAll()
+                        .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ADMIN")
+
 
                         .anyRequest().authenticated())
                 .httpBasic(withDefaults())
