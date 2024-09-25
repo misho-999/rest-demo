@@ -1,7 +1,6 @@
 package com.example.rest.controller;
 
 import com.example.rest.model.Car;
-import com.example.rest.repository.CarRepository;
 import com.example.rest.service.CarService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

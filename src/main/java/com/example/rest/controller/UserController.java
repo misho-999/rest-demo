@@ -59,7 +59,7 @@ public class UserController {
     //Update the whole User object
     @PutMapping("/{id}")
     private ResponseEntity<Void> updateUser(@PathVariable Integer id, @RequestBody User user) {
-       User createdUser = userService.updateExistingUser(id, user);
+        User createdUser = userService.updateExistingUser(id, user);
 
         if (createdUser == null) {
             return ResponseEntity
