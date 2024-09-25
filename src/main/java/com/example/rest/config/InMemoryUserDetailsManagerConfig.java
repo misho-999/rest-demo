@@ -15,12 +15,12 @@ public class InMemoryUserDetailsManagerConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        UserDetails user = User.withDefaultPasswordEncoder()
+        UserDetails user = User.withDefaultPasswordEncoder()    //BCrypt is the current default
                 .username("user")
                 .password("password")
                 .roles("USER")
                 .build();
-        UserDetails admin = User.withDefaultPasswordEncoder()
+        UserDetails admin = User.withDefaultPasswordEncoder()   //BCrypt is the current default
                 .username("admin")
                 .password("password")
                 .roles("ADMIN", "USER")
