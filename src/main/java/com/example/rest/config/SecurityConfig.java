@@ -25,6 +25,10 @@ public class SecurityConfig {
 
                         .requestMatchers(HttpMethod.DELETE, "/users/{id}").permitAll()
 
+                         //Actuator
+                        .requestMatchers(HttpMethod.GET,"/actuator/health").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/actuator/**").hasRole("ADMIN")
+
                         .anyRequest().authenticated())
                 .httpBasic(withDefaults())
                 .csrf(AbstractHttpConfigurer::disable);
