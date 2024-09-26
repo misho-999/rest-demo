@@ -28,9 +28,9 @@ public class UserController {
     }
 
     /**
-     * Example http://localhost:8080/users/all-as-page?page=2&size=5&sort=id,desc
+     * Example http://localhost:8080/users/all-as-page?page=0&size=5&sort=id,desc
      * Query parameters:
-     * page=2
+     * page=0 (Starts from 0)
      * size=5
      * sort=id,desc
      * @return List of User in Pageable variant!!!

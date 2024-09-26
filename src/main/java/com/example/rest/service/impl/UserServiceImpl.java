@@ -5,6 +5,7 @@ import com.example.rest.repository.UserRepository;
 import com.example.rest.service.UserService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,8 +30,7 @@ public class UserServiceImpl implements UserService {
                         PageRequest.of(
                                 pageable.getPageNumber(),  // page index for the second page - indexing starts at 0
                                 pageable.getPageSize(), // page size (the last page might have fewer items)
-                                pageable.getSort()))
-//                                Sort.by(new Sort.Order(Sort.Direction.DESC, "id"))))
+                                pageable.getSortOr(Sort.by(Sort.Direction.DESC, "id")))) //If Sort is missing use default one
                 .getContent();
     }
 
