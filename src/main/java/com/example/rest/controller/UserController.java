@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -20,8 +21,14 @@ public class UserController {
         this.userService = userService;
     }
 
+    /**
+     * Added Principal as parameter for learning purpose. It comes from Spring Security. Debug to see the content!!!
+     * authorities = ROLE_ADMIN, ROLE_USER, authenticated = true, username = admin, .....
+     * @param principal
+     * @return
+     */
     @GetMapping("/all")
-    private ResponseEntity<List<User>> getAllUsers() {
+    private ResponseEntity<List<User>> getAllUsers(Principal principal) {
         return ResponseEntity
                 .ok()
                 .body(userService.findAllUsers());
