@@ -2,6 +2,7 @@ package com.example.rest.controller;
 
 import com.example.rest.model.User;
 import com.example.rest.service.UserService;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -27,14 +28,18 @@ public class UserController {
     }
 
     /**
-     *
+     * Example http://localhost:8080/users/all-as-page?page=2&size=5&sort=id,desc
+     * Query parameters:
+     * page=2
+     * size=5
+     * sort=id,desc
      * @return List of User in Pageable variant!!!
      */
     @GetMapping("/all-as-page")
-    private ResponseEntity<List<User>> getAllUsersAsPage() {
+    private ResponseEntity<List<User>> getAllUsersAsPage(Pageable pageable) {
         return ResponseEntity
                 .ok()
-                .body(userService.findAllUsersAsPage());
+                .body(userService.findAllUsersAsPage(pageable));
     }
 
     @GetMapping("/{id}")
