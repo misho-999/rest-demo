@@ -26,6 +26,17 @@ public class UserController {
                 .body(userService.findAllUsers());
     }
 
+    /**
+     *
+     * @return List of User in Pageable variant!!!
+     */
+    @GetMapping("/all-as-page")
+    private ResponseEntity<List<User>> getAllUsersAsPage() {
+        return ResponseEntity
+                .ok()
+                .body(userService.findAllUsersAsPage());
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable("id") Integer id) {
         User user = userService.findUserById(id);

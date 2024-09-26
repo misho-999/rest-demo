@@ -3,6 +3,8 @@ package com.example.rest.service.impl;
 import com.example.rest.model.User;
 import com.example.rest.repository.UserRepository;
 import com.example.rest.service.UserService;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +21,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findAllUsers() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public List<User> findAllUsersAsPage() {
+        return userRepository.findAll(
+                        PageRequest.of(
+                                1,  // page index for the second page - indexing starts at 0
+                                5, // page size (the last page might have fewer items)
+                                Sort.by(new Sort.Order(Sort.Direction.DESC, "id"))))
+                .getContent();
     }
 
     @Override

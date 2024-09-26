@@ -9,6 +9,8 @@ import java.util.List;
 public interface UserService {
     List<User> findAllUsers();
 
+    List<User> findAllUsersAsPage();
+
     User findUserById(Integer id);
 
     User createNewUser(User user);
