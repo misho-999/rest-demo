@@ -21,3 +21,6 @@ spring.security.oauth2.client.registration.google.redirect-uri=http://localhost:
 
 Open Chrome and log in with Google credentials for example:
 http://localhost:8080/users/5
+
+# Get POSTMAN requests 
+src/main/resources/postman/rest-demo.postman_collection_26.09.2024.json
