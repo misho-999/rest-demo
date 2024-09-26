@@ -1,0 +1,1020 @@
+{
+	"info": {
+		"_postman_id": "7f4a8680-98e1-4ae6-9d67-bf86dfc4d88f",
+		"name": "rest-demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31554064"
+	},
+	"item": [
+		{
+			"name": "actuator",
+			"item": [
+				{
+					"name": "/actuator",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/test actuator",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/custom actuator",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/cars.summary",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"cars.summary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actuator/health",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actuator/metrics",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actuator/metrics/http.server.requests",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/http.server.requests",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"http.server.requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actuator/metrics/disk.total",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/disk.total",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"disk.total"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actuator/metrics/disk.free",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/disk.free",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"disk.free"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actuator/metrics/process.cpu.usage",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/process.cpu.usage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"process.cpu.usage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actuator/metrics/spring.security.authentications",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/spring.security.authentications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"spring.security.authentications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actuator/metrics/spring.security.authorizations",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/spring.security.authorizations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"spring.security.authorizations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actuator/metrics/spring.security.filterchains",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/spring.security.filterchains",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"spring.security.filterchains"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/users/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Ivan-333\",\r\n    \"email\": \"dragan@dd\",\r\n    \"cars\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users/all",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "users",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "63eb10a8-e30b-4f9b-b749-5f12a2d33187",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users/{id}",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "angelov",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "misho",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Ivan-111\",\r\n    \"email\": \"dragan@111\",\r\n    \"cars\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/33",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users/{id}",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/5?email=SSSS@222",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"5"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "SSSS@222"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/oauth2/authorization/google",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "f3d2563c-fbf1-4c7a-8e5c-c665956ff42d$qMfdze923TcB3I6rtHd2tgi5RfrdQitkl-DRPBY8yOA=",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "sb-na-0f3928b6-7a21-477a-b89f-2927f0a204c7!a426350",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://pid-test.authentication.eu10.hana.ondemand.com/oauth/token",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "apitoken",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/oauth2/authorization/google",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth2",
+						"authorization",
+						"google"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "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",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "814007423867-jpeg3f9b550dstar30lv0193d33hep67.apps.googleusercontent.com",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://oauth2.googleapis.com/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline",
+							"type": "string"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8080/login/oauth2/code/google",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "apitoken",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/cars/al - Auth",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "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",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "814007423867-jpeg3f9b550dstar30lv0193d33hep67.apps.googleusercontent.com",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://oauth2.googleapis.com/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline",
+							"type": "string"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8080/login/oauth2/code/google",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "apitoken",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://spreadsheets.google.com/feeds/",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "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",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "814007423867-jpeg3f9b550dstar30lv0193d33hep67.apps.googleusercontent.com",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://oauth2.googleapis.com/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline",
+							"type": "string"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8080/login/oauth2/code/google",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "apitoken",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cars/all - Google",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://oauth2.googleapis.com/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline",
+							"type": "string"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8080/login/oauth2/code/google",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Google OAuth2 getpostman",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "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",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "814007423867-jpeg3f9b550dstar30lv0193d33hep67.apps.googleusercontent.com",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cars/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cars",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cars/all - local",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cars/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cars",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

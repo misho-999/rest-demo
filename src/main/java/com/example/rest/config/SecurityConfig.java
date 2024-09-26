@@ -23,6 +23,8 @@ public class SecurityConfig {
 
                         .requestMatchers(HttpMethod.PUT, "/users/*").permitAll()
 
+                        .requestMatchers(HttpMethod.POST, "/users/*").permitAll()
+
                         .requestMatchers(HttpMethod.PATCH, "/users/{id}").permitAll()
 
                         .requestMatchers(HttpMethod.DELETE, "/users/{id}").permitAll()
