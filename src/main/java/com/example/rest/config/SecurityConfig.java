@@ -21,6 +21,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/users/all-as-page").permitAll()
                         .requestMatchers(HttpMethod.GET, "/cars/all").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/users/*").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/cars/by-user-id/").permitAll()
 
                         .requestMatchers(HttpMethod.PUT, "/users/*").permitAll()
 

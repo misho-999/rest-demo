@@ -10,9 +10,10 @@ import org.springframework.web.client.RestTemplate;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CarRepository extends JpaRepository<Car, Integer> {
 
-
+    Optional<Car> findByUserId(Integer userId);
 }

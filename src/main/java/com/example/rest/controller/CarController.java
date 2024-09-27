@@ -6,6 +6,7 @@ import io.micrometer.core.instrument.DistributionSummary;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,5 +43,20 @@ public class CarController {
         return ResponseEntity
                 .ok()
                 .body(carService.findAllCars());
+    }
+
+    @GetMapping("/by-user-id/{userId}")
+    public ResponseEntity<Car> getCarByUserId(@PathVariable("userId") Integer userId) {
+        Car car = carService.findCarByUserId(userId);
+
+        if (car != null) {
+            return ResponseEntity
+                    .ok()
+                    .body(car);
+        } else {
+            return ResponseEntity
+                    .notFound()
+                    .build();
+        }
     }
 }

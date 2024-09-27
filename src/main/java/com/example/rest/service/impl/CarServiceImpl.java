@@ -20,4 +20,9 @@ public class CarServiceImpl implements CarService {
     public List<Car> findAllCars() {
         return carRepository.findAll();
     }
+
+    @Override
+    public Car findCarByUserId(Integer userId) {
+        return carRepository.findByUserId(userId).orElse(null);
+    }
 }
