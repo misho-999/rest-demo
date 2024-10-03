@@ -37,9 +37,8 @@ public class SecurityConfig {
                         .requestMatchers(EndpointRequest.to(HealthEndpoint.class)).permitAll()
                         .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ADMIN")
 
-
                         .anyRequest().authenticated())
-                .httpBasic(withDefaults())
+                .httpBasic(withDefaults())            // Enable HTTP Basic Authentication
                 .csrf(AbstractHttpConfigurer::disable);
         return http.build();
     }
