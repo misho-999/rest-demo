@@ -12,8 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.HashSet;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -72,5 +71,18 @@ public class MockMvsTest {
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(mapper.writeValueAsString(user)))
                 .andExpect(status().isCreated());
+    }
+
+    @Test
+    @WithMockUser(username = "admin", roles = {"USER", "ADMIN"})           //Need spring-security-test dependency!!!
+    public void testPatchUser() throws Exception {
+
+        mockMvc
+                .perform(
+                        patch("/users/{id}", 1)                  //@PathVariable
+                                .param("email", "dundrun.yahoo.com")     //@RequestParam
+                                .accept(MediaType.APPLICATION_JSON)
+                                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNoContent());
     }
 }
