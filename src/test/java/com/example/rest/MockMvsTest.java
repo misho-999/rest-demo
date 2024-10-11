@@ -1,4 +1,4 @@
-package com.example.rest.integration;
+package com.example.rest;
 
 import com.example.rest.model.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
