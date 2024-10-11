@@ -1,0 +1,6 @@
+
+#Insert Cars
+INSERT INTO `my_rest_demo_db`.`cars` (`car_id`, `make`, `model`, `user_id`) VALUES ('1', 'Audi', 'A8', '1');
+INSERT INTO `my_rest_demo_db`.`cars` (`car_id`, `make`, `model`, `user_id`) VALUES ('2', 'BMW', 'X6', '1');
+INSERT INTO `my_rest_demo_db`.`cars` (`car_id`, `make`, `model`, `user_id`) VALUES ('3', 'WF', 'Golf', '2');
+INSERT INTO `my_rest_demo_db`.`cars` (`car_id`, `make`, `model`, `user_id`) VALUES ('4', 'Scoda', 'Octavia', '2');
