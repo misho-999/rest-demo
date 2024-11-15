@@ -2,6 +2,7 @@ package com.example.rest.service.impl;
 
 import com.example.rest.model.User;
 import com.example.rest.repository.UserRepository;
+import lombok.experimental.PackagePrivate;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -22,22 +23,20 @@ class UserServiceImplTest {
     @InjectMocks
     private UserServiceImpl userService;
 
+    private final List<User> mockUsers = getMockUsetList();
+
     @Test
     void findAllUsers() {
         //Arrange
-        User user1 = new User();
-        user1.setId(1);
-        user1.setCars(new HashSet<>());
-        user1.setEmail("user1@avb");
-        user1.setUsername("User 1");
-        when(userRepository.findAll()).thenReturn(List.of(user1));
+
+        when(userRepository.findAll()).thenReturn(mockUsers);
 
         //Act
         List<User> allUsers = userService.findAllUsers();
 
         //Assert
         assertEquals(1, allUsers.size());
-        assertEquals(allUsers.get(0).getEmail(), "user1@avb");
+        assertEquals(allUsers.getFirst().getEmail(), "user1@avb");
     }
 
     @Test
@@ -62,5 +61,14 @@ class UserServiceImplTest {
 
     @Test
     void deleteExistingUserById() {
+    }
+
+    private List<User> getMockUsetList(){
+        User user1 = new User();
+        user1.setId(1);
+        user1.setCars(new HashSet<>());
+        user1.setEmail("user1@avb");
+        user1.setUsername("User 1");
+        return List.of(user1);
     }
 }
