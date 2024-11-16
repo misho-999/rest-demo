@@ -38,6 +38,7 @@ public class MockMvsTest {
     }
 
     @Test
+    @WithMockUser(username = "admin", roles = "USER")
     public void testGetAllUsers() throws Exception {
         mockMvc
                 .perform(get("/users/all").accept(MediaType.APPLICATION_JSON))

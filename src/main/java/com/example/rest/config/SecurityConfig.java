@@ -16,11 +16,12 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests((authz) -> authz
-                        .requestMatchers(HttpMethod.GET, "/users/all").permitAll()
+        http.authorizeHttpRequests((authorize) -> authorize
+                        .requestMatchers(HttpMethod.GET, "/users/all").hasRole("USER")
                         .requestMatchers(HttpMethod.GET, "/users/all-as-page").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/cars/all").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/users/{id}").permitAll()
                         .requestMatchers(HttpMethod.GET, "/users/*").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/cars/all").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/cars/by-user-id/").permitAll()
 
                         .requestMatchers(HttpMethod.PUT, "/users/*").permitAll()
