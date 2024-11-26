@@ -27,3 +27,14 @@ src/main/resources/postman/rest-demo.postman_collection_26.09.2024.json
 
 # Create CarController object 
 CarController.getAllCars() method contains piece of code which create Authentication object for learning purpose!!!
+
+Important points:
+1. Rest controller communication
+2. Spring Data JPA
+3. Implemented some Unit tests 
+4. Implemented some Integration tests
+5. Spring Actuator
+6. jacoco-maven-plugin for test coverage.
+7. In memory UserDetailsService
+8. Filter
+
