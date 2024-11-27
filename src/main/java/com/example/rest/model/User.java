@@ -27,6 +27,6 @@ public class User implements Serializable {
     private String email;
 
     @Column(name = "cars")
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     public Set<Car> cars;
 }

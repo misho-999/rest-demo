@@ -5,8 +5,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -24,9 +27,12 @@ class UserControllerTest {
     @Autowired
     private TestRestTemplate testRestTemplate;
 
+    @LocalServerPort
+    private int randomPort;
+
 
     @Test
-    public void addAndDeleteUser() throws URISyntaxException {
+    public void addAndDeleteUserTest() throws URISyntaxException {
         String addUrl = "/users/create";     //!!! Relative path !!!
         User forObject = testRestTemplate.getForObject("/users/4", User.class);
 
@@ -48,5 +54,21 @@ class UserControllerTest {
 
         assertEquals(response.getStatusCode(), HttpStatus.NOT_FOUND);   //404
         System.out.println();
+    }
+
+    @Test
+    public void updateUserTest(){
+        User user = new User();
+        user.setUsername("Petkan3");
+        user.setEmail("petkan@gmail.com");
+
+        String url = "/users/1";
+
+        UriComponents uriComponents =   UriComponentsBuilder.fromHttpUrl("http://localhost:"+ randomPort).path(url).build();
+
+
+        testRestTemplate.put(uriComponents.toUri(), user);
+
+//        ResponseEntity<User> forEntity = testRestTemplate.getForEntity(url, User.class);
     }
 }
