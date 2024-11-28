@@ -16,8 +16,10 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {
@@ -32,6 +34,8 @@ class UserServiceImplTest {
     private UserServiceImpl userService;
 
     private final List<User> mockUsers = getMockUsetList();
+    private final User mockUser = getMockUser();
+
 
     @Test
     void findAllUsers() {
@@ -47,7 +51,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void findAllUsersAsPage() {
+    void findAllUsersAsPageTest() {
         //Arrange
         PageRequest pageRequest = PageRequest.of(1, 2, Sort.by(Sort.Direction.DESC, "id"));
 
@@ -63,7 +67,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void findUserById() {
+    void findUserByIdTest() {
         //Arrange
         when(userRepository.findById(anyInt())).thenReturn(Optional.of(mockUsers.getFirst()));
 
@@ -75,20 +79,79 @@ class UserServiceImplTest {
     }
 
     @Test
-    void createNewUser() {
+    void createNewUserTest() {
+        //Arrange
+        when(userRepository.save(mockUser)).thenReturn(mockUser);
+
+        //Act
+        userService.createNewUser(mockUser);
+
+        //Assert
+        verify(userRepository, times(1)).save(any(User.class));
     }
 
     @Test
-    void updateExistingUser() {
+    void updateExistingUserTest() {
+        //Arrange
+        when(userRepository.findById(anyInt())).thenReturn(Optional.of(mockUser));
+        when(userRepository.save(mockUser)).thenReturn(mockUser);
+
+        //Act
+
+        userService.updateExistingUser(anyInt(), mockUser);
+
+        //Assert
+        verify(userRepository, times(1)).save(any(User.class));
+
     }
 
     @Test
-    void updateUserEmail() {
+    void updateExistingUserWhenUserIsMissingTest() {
+        //Arrange
+        when(userRepository.findById(anyInt())).thenReturn(Optional.empty());
+
+        //Act
+        User user = userService.updateExistingUser(anyInt(), mockUser);
+
+        //Assert
+        assertNull(user);
     }
 
     @Test
-    void deleteExistingUserById() {
+    void updateUserEmailTest() {
+        //Arrange
+        when(userRepository.findById(anyInt())).thenReturn(Optional.of(mockUser));
+        when(userRepository.save(any(User.class))).thenReturn(mockUser);
+
+        //Act
+        userService.updateUserEmail(1, anyString());
+
+        //Assert
+        verify(userRepository, times(1)).save(any(User.class));
     }
+
+    @Test
+    void deleteExistingUserByIdTest() {
+        //Arrange
+
+
+        //Act
+
+
+        //Assert
+    }
+
+
+    private User getMockUser() {
+        User user = new User();
+        user.setUsername("Fake user");
+        user.setEmail("fake@gmail.com");
+        user.setId(1);
+
+        return user;
+    }
+
+    ;
 
     private List<User> getMockUsetList() {
         User user1 = new User();
