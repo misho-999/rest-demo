@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.HashSet;
 
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -32,7 +33,7 @@ public class MockMvsTest {
     @Test
     public void testGetUserById() throws Exception {
         mockMvc
-                .perform(get("/users/{id}", "9").accept(MediaType.APPLICATION_JSON))
+                .perform(get("/users/{id}", "9").accept(MediaType.APPLICATION_JSON).with(csrf()))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"));
     }
@@ -41,7 +42,7 @@ public class MockMvsTest {
     @WithMockUser(username = "admin", roles = "USER")
     public void testGetAllUsers() throws Exception {
         mockMvc
-                .perform(get("/users/all").accept(MediaType.APPLICATION_JSON))
+                .perform(get("/users/all").accept(MediaType.APPLICATION_JSON).with(csrf()))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"));
     }
@@ -51,7 +52,7 @@ public class MockMvsTest {
     public void testGetAllCars() throws Exception {
 
         mockMvc
-                .perform(get("/cars/all").accept(MediaType.APPLICATION_JSON))
+                .perform(get("/cars/all").accept(MediaType.APPLICATION_JSON).with(csrf()))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"));
     }
@@ -70,7 +71,8 @@ public class MockMvsTest {
                         post("/users/create")
                                 .accept(MediaType.APPLICATION_JSON)
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .content(mapper.writeValueAsString(user)))
+                                .content(mapper.writeValueAsString(user))
+                                .with(csrf()))
                 .andExpect(status().isCreated());
     }
 
