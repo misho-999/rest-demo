@@ -945,7 +945,7 @@
 					"oauth2": [
 						{
 							"key": "clientSecret",
-							"value": "f3d2563c-fbf1-4c7a-8e5c-c665956ff42d$qMfdze923TcB3I6rtHd2tgi5RfrdQitkl-DRPBY8yOA=",
+							"value": "clientSecret",
 							"type": "string"
 						},
 						{
@@ -1006,7 +1006,7 @@
 						},
 						{
 							"key": "clientSecret",
-							"value": "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",
+							"value": "INSERT_YOUR_API_CLIENT_SECRET",
 							"type": "string"
 						},
 						{
@@ -1076,7 +1076,7 @@
 						},
 						{
 							"key": "clientSecret",
-							"value": "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",
+							"value": "INSERT_YOUR_API_CLIENT_SECRET",
 							"type": "string"
 						},
 						{
@@ -1146,7 +1146,7 @@
 						},
 						{
 							"key": "clientSecret",
-							"value": "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",
+							"value": "INSERT_YOUR_API_CLIENT_SECRET",
 							"type": "string"
 						},
 						{
@@ -1236,7 +1236,7 @@
 						},
 						{
 							"key": "clientSecret",
-							"value": "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",
+							"value": "INSERT_YOUR_API_CLIENT_SECRET",
 							"type": "string"
 						},
 						{
