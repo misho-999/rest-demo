@@ -33,7 +33,7 @@ class UserServiceImplTest {
     @InjectMocks
     private UserServiceImpl userService;
 
-    private final List<User> mockUsers = getMockUsetList();
+    private final List<User> mockUsers = getMockUsersList();
     private final User mockUser = getMockUser();
 
 
@@ -141,7 +141,6 @@ class UserServiceImplTest {
         //Assert
     }
 
-
     private User getMockUser() {
         User user = new User();
         user.setUsername("Fake user");
@@ -151,9 +150,7 @@ class UserServiceImplTest {
         return user;
     }
 
-    ;
-
-    private List<User> getMockUsetList() {
+    private List<User> getMockUsersList() {
         User user1 = new User();
         user1.setId(1);
         user1.setCars(new HashSet<>());
