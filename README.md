@@ -15,9 +15,11 @@ Password : "password"
 1. Comment SecurityConfig.java file
 2. Uncomment this 4 lines
 spring.security.oauth2.client.registration.google.client-id=
-spring.security.oauth2.client.registration.google.client-secret=
+spring.security.oauth2.client.registration.google.client-secret= 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 (This is not valid. For example only)
 spring.security.oauth2.client.registration.google.scope=openid
 spring.security.oauth2.client.registration.google.redirect-uri=http://localhost:8080/login/oauth2/code/google
+   
+Get Credentials from: https://console.cloud.google.com/apis/dashboard?project=my-rest-test-project-436009
 
 Open Chrome and log in with Google credentials for example:
 http://localhost:8080/users/5
