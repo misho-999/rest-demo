@@ -2,14 +2,15 @@
 REST API for learning purpose
 
 # Important points:
-1. Rest controller communication
-2. Spring Data JPA
-3. Implemented some Unit tests
-4. Implemented some Integration tests
-5. Spring Actuator
+1. Rest controller communication.
+2. Spring Data JPA.
+3. Implemented some Unit tests.
+4. Implemented some Integration tests.
+5. Spring Actuator.
 6. jacoco-maven-plugin for test coverage.
-7. In memory UserDetailsService
-8. Filter
+7. In memory UserDetailsService.
+8. Implement Filter.
+9. Login with Google credentials.
 
 # Requests
 Auth Type : Basic Auth
