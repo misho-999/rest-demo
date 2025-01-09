@@ -1,5 +1,5 @@
 # rest-demo
-REST project for learning purpose
+REST API for learning purpose
 
 # Requests with POSTMAN
 Auth Type : Basic Auth
