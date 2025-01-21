@@ -133,12 +133,16 @@ class UserServiceImplTest {
     @Test
     void deleteExistingUserByIdTest() {
         //Arrange
+        User user = new User();
+        user.setId(2);
 
+        when(userRepository.findById(2)).thenReturn(Optional.of(user));
 
         //Act
-
+        userService.deleteExistingUserById(2);
 
         //Assert
+        verify(userRepository, times(1)).delete(user);
     }
 
     private User getMockUser() {
