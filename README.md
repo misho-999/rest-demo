@@ -6,7 +6,9 @@ REST API for learning purpose
 2. Spring Data JPA.
 3. Implemented some Unit tests.
 4. Implemented some Integration tests.
-5. Spring Actuator.
+5. Spring Boot Actuator.
+   After every GET http://localhost:8080/cars/all request, the count of new registered custom metric
+   http://localhost:8080/actuator/metrics/cars.all.count is incremented.
 6. jacoco-maven-plugin for test coverage.
 7. In memory UserDetailsService.
 8. Implement Filter.

@@ -36,7 +36,7 @@ public class CarController {
      */
     public CarController(MeterRegistry meter, CarService carService) {
         this.carService = carService;
-        summary = DistributionSummary.builder("cars.summary")  //Build a custom metric (cars.summary)  and register it
+        summary = DistributionSummary.builder("cars.all.count")  //Build a custom metric (cars.all.count)  and register it
                 .baseUnit("times")
                 .register(meter);
 
