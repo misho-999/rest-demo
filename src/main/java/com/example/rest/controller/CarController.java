@@ -29,7 +29,7 @@ public class CarController {
 
     /**
      * We Create custom metric in Spring Actuator.
-     * We call this metric using: /actuator/metrics/cars.summary endpoint
+     * We call this metric using: /actuator/metrics/cars.all.count endpoint
      *
      * @param meter      It comes from spring actuator
      * @param carService Injected service
