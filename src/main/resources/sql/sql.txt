@@ -1,9 +1,14 @@
-
+#Insert Users
+INSERT INTO `my_rest_demo_db`.`users` (`user_id`, `email`, `username`) VALUES ('1', 'misho@gmail.com', 'Mihail');
+INSERT INTO `my_rest_demo_db`.`users` (`user_id`, `email`, `username`) VALUES ('2', 'ivan@gmail.com', 'Ivancho');
+INSERT INTO `my_rest_demo_db`.`users` (`user_id`, `email`, `username`) VALUES ('3', 'pesho@gmail.com', 'Petar');
+INSERT INTO `my_rest_demo_db`.`users` (`user_id`, `email`, `username`) VALUES ('4', 'gosho@gmail.com', 'Georgi');
+INSERT INTO `my_rest_demo_db`.`users` (`user_id`, `email`, `username`) VALUES ('5', 'asen@gmail.com', 'Asen');
+INSERT INTO `my_rest_demo_db`.`users` (`user_id`, `email`, `username`) VALUES ('6', 'mimi@gmail.com', 'Maria');
+INSERT INTO `my_rest_demo_db`.`users` (`user_id`, `email`, `username`) VALUES ('7', 'stafka@gmail.com', 'Stefka');
+------------------------------------------------------------------------------------------------------------------
 #Insert Cars
 INSERT INTO `my_rest_demo_db`.`cars` (`car_id`, `make`, `model`, `user_id`) VALUES ('1', 'Audi', 'A8', '1');
 INSERT INTO `my_rest_demo_db`.`cars` (`car_id`, `make`, `model`, `user_id`) VALUES ('2', 'BMW', 'X6', '1');
 INSERT INTO `my_rest_demo_db`.`cars` (`car_id`, `make`, `model`, `user_id`) VALUES ('3', 'WF', 'Golf', '2');
 INSERT INTO `my_rest_demo_db`.`cars` (`car_id`, `make`, `model`, `user_id`) VALUES ('4', 'Scoda', 'Octavia', '2');
-
-------------------------------------------------------------------------------------------------------------------
-INSERT INTO `my_rest_demo_db`.`users` (`user_id`, `email`, `username`) VALUES ('9', 'ivan@gmail.com', 'Ivancho');
