@@ -17,13 +17,9 @@ pipeline {
             }
         }
         stage('Deploy') {
-            when {
-              expression {
-                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
-              }
-            }
             steps {
-                sh 'make publish'
+                sh 'sudo systemctl stop rest-demo'
+				sh 'sudo systemctl start rest-demo'
             }
         }
 //         stage('Deploy') {
