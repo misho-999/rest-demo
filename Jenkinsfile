@@ -18,8 +18,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+		sh 'sudo -S'
                 sh 'sudo systemctl stop rest-demo'
-				sh 'sudo systemctl start rest-demo'
+		sh 'sudo systemctl start rest-demo'
             }
         }
 //         stage('Deploy') {
