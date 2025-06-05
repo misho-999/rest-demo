@@ -13,6 +13,7 @@ REST API for learning purpose
 7. In memory UserDetailsService.
 8. Implement Filter.
 9. Login with Google credentials.
+10. Test simple WebClient GET request. No authentication required: http://localhost:8080/webclient/posts  
 
 # Requests
 Auth Type : Basic Auth
