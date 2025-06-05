@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("cars")
 public class CarController {
+    public static final Logger LOGGER = Logger.getLogger(CarController.class.getName());
     //Related to Actuator
     private final DistributionSummary summary;
     //Related to Actuator. Count the number of calls to getAllCars();
@@ -39,11 +41,12 @@ public class CarController {
         summary = DistributionSummary.builder("cars.all.count")  //Build a custom metric (cars.all.count)  and register it
                 .baseUnit("times")
                 .register(meter);
-
     }
 
     @GetMapping("/all")
     private ResponseEntity<List<Car>> getAllCars() {
+        LOGGER.info("!!!! CarController getAllCars() is called!!!!!!!!!!!!!!!!");
+
         summary.record(++count);
 
         //This part of code is for learning purpose!!!
