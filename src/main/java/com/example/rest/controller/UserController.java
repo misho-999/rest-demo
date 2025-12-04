@@ -2,6 +2,8 @@ package com.example.rest.controller;
 
 import com.example.rest.model.User;
 import com.example.rest.service.UserService;
+import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,13 +15,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("users")
+@AllArgsConstructor
 public class UserController {
 
-    private final UserService userService;
+    private final ModelMapper modelMapper;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+    private final UserService userService;
 
     /**
      * Added Principal as parameter for learning purpose. It comes from Spring Security. Debug to see the content!!!
