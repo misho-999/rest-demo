@@ -2,8 +2,10 @@ package com.example.rest.controller;
 
 import com.example.rest.model.User;
 import com.example.rest.service.UserService;
+import jakarta.validation.constraints.Positive;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -13,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("users")
+@Validated
 public class UserController {
 
     private final UserService userService;
@@ -50,7 +53,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable("id") Integer id) {
+    public ResponseEntity<User> getUserById(@Positive(message = "User ID must be Positive Integer") @PathVariable("id") Integer id) {
         User user = userService.findUserById(id);
 
         if (user != null) {
